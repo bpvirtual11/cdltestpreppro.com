@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" rx="90" fill="url(#bg-gradient)"/>
+
+  <!-- Truck silhouette -->
+  <g transform="translate(80, 180)">
+    <!-- Trailer -->
+    <rect x="120" y="40" width="200" height="100" rx="8" fill="#ffffff" opacity="0.95"/>
+
+    <!-- Cab -->
+    <path d="M 80 60 L 120 60 L 120 140 L 60 140 L 60 100 Z" fill="#ffffff" opacity="0.95"/>
+
+    <!-- Wheels -->
+    <circle cx="100" cy="150" r="20" fill="#1e293b" stroke="#ffffff" stroke-width="4"/>
+    <circle cx="180" cy="150" r="20" fill="#1e293b" stroke="#ffffff" stroke-width="4"/>
+    <circle cx="280" cy="150" r="20" fill="#1e293b" stroke="#ffffff" stroke-width="4"/>
+
+    <!-- Wheel details (rims) -->
+    <circle cx="100" cy="150" r="8" fill="#60a5fa"/>
+    <circle cx="180" cy="150" r="8" fill="#60a5fa"/>
+    <circle cx="280" cy="150" r="8" fill="#60a5fa"/>
+
+    <!-- CDL text on trailer -->
+    <text x="220" y="100" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#2563eb" text-anchor="middle">CDL</text>
+  </g>
+
+  <!-- Checkmark badge (bottom right) -->
+  <circle cx="420" cy="420" r="60" fill="#10b981" stroke="#ffffff" stroke-width="8"/>
+  <path d="M 390 420 L 410 440 L 450 400" fill="none" stroke="#ffffff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
