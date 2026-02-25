@@ -227,6 +227,28 @@
     var GOOGLE_PLAY = 'https://play.google.com/store/apps/details?id=com.cdltestprep.app';
     var APP_STORE   = '#'; // Update when iOS app is live
 
+    // Instant redirect on mobile — skip landing page for maximum downloads
+    (function() {
+      var ua = navigator.userAgent || navigator.vendor || window.opera;
+
+      // iOS → App Store (or show landing page if not live yet)
+      if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
+        if (APP_STORE && APP_STORE !== '#') {
+          window.location.replace(APP_STORE);
+        }
+        return; // iOS app not live yet — show landing page as fallback
+      }
+
+      // Android → Google Play (instant)
+      if (/android/i.test(ua)) {
+        window.location.replace(GOOGLE_PLAY);
+        return;
+      }
+
+      // Desktop users see the full landing page with both store buttons
+    })();
+
+    // Fallback for the Download button (desktop or if redirect didn't fire)
     function smartRedirect(e) {
       e.preventDefault();
       var ua = navigator.userAgent || navigator.vendor || window.opera;
@@ -237,11 +259,6 @@
         } else {
           alert('Coming soon to the App Store! The Android version is available now on Google Play.');
         }
-        return;
-      }
-
-      if (/android/i.test(ua)) {
-        window.location.href = GOOGLE_PLAY;
         return;
       }
 
